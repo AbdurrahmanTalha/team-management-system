@@ -13,6 +13,10 @@ const envVarsZodSchema = z.object({
     DATABASE_USER: z.string(),
     DATABASE_PASSWORD: z.string(),
     DATABASE: z.string(),
+    SECRET: z.string(),
+    BASE_URL: z.string(),
+    CLIENT_ID: z.string(),
+    ISSUER: z.string(),
 });
 
 const envVars = envVarsZodSchema.parse(process.env);
@@ -24,5 +28,11 @@ export default {
         user: envVars.DATABASE_USER,
         password: envVars.DATABASE_PASSWORD,
         database: envVars.DATABASE,
+    },
+    auth: {
+        secret: envVars.SECRET,
+        baseURL: envVars.BASE_URL,
+        clientID: envVars.CLIENT_ID,
+        issuer: envVars.ISSUER,
     },
 };
