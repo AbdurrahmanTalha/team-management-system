@@ -2,16 +2,18 @@ import { Request, Response } from "express";
 import catchAsync from "../../../shared/catchAsync";
 import sendResponse from "../../../shared/sendResponse";
 import httpStatus from "http-status";
+import service from "./auth.service";
 
-const getMyProfile = catchAsync(async (req: Request, res: Response) => {
-    const result = req.oidc.user;
+const register = catchAsync(async (req: Request, res: Response) => {
+    await service.createUserService(req.body);
 
     sendResponse(res, {
         statusCode: httpStatus.OK,
         success: true,
-        data: result,
-        message: "Successfully found my profile",
+        message: "Successfully registered",
     });
 });
 
-export default { getMyProfile };
+const login = catchAsync(async (req: Request, res: Response) => {});
+
+export default { register };

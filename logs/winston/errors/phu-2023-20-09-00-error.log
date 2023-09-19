@@ -1,0 +1,4 @@
+Wed Sep 20 2023 0:44:50 [TMS] error: ER_NO_SUCH_TABLE: Table 'team-management-system.users' doesn't exist
+Wed Sep 20 2023 0:45:15 [TMS] error: Cannot read properties of undefined (reading 'solution')
+Wed Sep 20 2023 0:45:22 [TMS] error: ER_DUP_ENTRY: Duplicate entry 'Abdur Rahman Talha' for key 'user.username'
+Wed Sep 20 2023 0:46:46 [TMS] error: Failed to create user
