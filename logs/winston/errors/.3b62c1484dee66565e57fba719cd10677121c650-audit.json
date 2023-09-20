@@ -34,6 +34,11 @@
             "date": 1695174249419,
             "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/errors/phu-2023-20-09-07-error.log",
             "hash": "61d166886d0e52b4dcda7bf545c065516b13fac22cce5b33cd053688108f57f5"
+        },
+        {
+            "date": 1695179539438,
+            "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/errors/phu-2023-20-09-09-error.log",
+            "hash": "dbef1c717123551bfa24a233d710714359e07b1d22595525d9c35d60cecb10db"
         }
     ],
     "hashType": "sha256"
