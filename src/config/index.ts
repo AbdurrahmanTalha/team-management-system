@@ -14,9 +14,7 @@ const envVarsZodSchema = z.object({
     DATABASE_PASSWORD: z.string(),
     DATABASE: z.string(),
     SECRET: z.string(),
-    BASE_URL: z.string(),
-    CLIENT_ID: z.string(),
-    ISSUER: z.string(),
+    JWT_EXPIRES_IN: z.string(),
 });
 
 const envVars = envVarsZodSchema.parse(process.env);
@@ -29,10 +27,8 @@ export default {
         password: envVars.DATABASE_PASSWORD,
         database: envVars.DATABASE,
     },
-    auth: {
+    jwt: {
         secret: envVars.SECRET,
-        baseURL: envVars.BASE_URL,
-        clientID: envVars.CLIENT_ID,
-        issuer: envVars.ISSUER,
+        expires_in: envVars.JWT_EXPIRES_IN,
     },
 };
