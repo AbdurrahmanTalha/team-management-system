@@ -16,5 +16,15 @@ const createTeam = catchAsync(async (req: Request, res: Response) => {
     });
 });
 
+const getTeam = catchAsync(async (req: Request, res: Response) => {
+    const result = await service.getTeamService(req.params.id);
 
-export default { createTeam };
+    sendResponse<ITeam>(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: "Successfully found team",
+        data: result,
+    });
+});
+
+export default { createTeam, getTeam };

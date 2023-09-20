@@ -1,3 +1,5 @@
+import httpStatus from "http-status";
+import ApiError from "../../../errors/ApiError";
 import sql from "../../../shared/db";
 import { ITeam } from "./team.interface";
 
@@ -18,8 +20,19 @@ const createTeamService = async (payload: ITeam): Promise<ITeam> => {
         const createdTeam = result[0] as ITeam;
         return createdTeam;
     } else {
-        throw new Error("Team not found after insertion.");
+        throw new ApiError(httpStatus.NOT_FOUND, "Team not found after insertion.");
     }
 };
 
-export default { createTeamService };
+const getTeamService = async (payload: string): Promise<ITeam> => {
+    const [result] = await sql.query("SELECT * FROM team WHERE id = ?", [payload]);
+
+    if (Array.isArray(result) && result.length > 0) {
+        const createdTeam = result[0] as ITeam;
+        return createdTeam;
+    } else {
+        throw new ApiError(httpStatus.NOT_FOUND, "Team not found.");
+    }
+};
+
+export default { createTeamService, getTeamService };

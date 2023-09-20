@@ -5,6 +5,7 @@ import { ENUM_USER_ROLES } from "../../../enum/user";
 
 const router = express.Router();
 
+router.get("/:id", controller.getTeam)
 router.post("/", auth(ENUM_USER_ROLES.ADMIN), controller.createTeam);
 
 export default router;
