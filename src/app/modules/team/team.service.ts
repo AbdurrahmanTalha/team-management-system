@@ -35,4 +35,33 @@ const getTeamService = async (payload: string): Promise<ITeam> => {
     }
 };
 
-export default { createTeamService, getTeamService };
+const updateTeamService = async (teamId: string, payload: Partial<ITeam>): Promise<ITeam> => {
+    const [exists] = await sql.query("SELECT * FROM team WHERE id = ?", [teamId]);
+    if (Array.isArray(exists) && exists.length === 0) {
+        throw new ApiError(httpStatus.NOT_FOUND, "Team not found.");
+    }
+
+    const updateColumns = [];
+    const updateValues = [];
+
+    for (const key in payload) {
+        updateColumns.push(`${key} = ?`);
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        updateValues.push((payload as any)[key]);
+    }
+
+    const updateQuery = `UPDATE team SET ${updateColumns.join(", ")} WHERE id = ?`;
+    updateValues.push(teamId);
+    await sql.query(updateQuery, updateValues);
+
+    const [result] = await sql.query("SELECT * FROM team WHERE id = ?", [teamId]);
+
+    if (Array.isArray(result) && result.length > 0) {
+        const updatedTeam = result[0] as ITeam;
+        return updatedTeam;
+    } else {
+        throw new ApiError(httpStatus.NOT_FOUND, "Team not found.");
+    }
+};
+
+export default { createTeamService, getTeamService, updateTeamService };

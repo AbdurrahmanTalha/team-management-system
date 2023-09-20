@@ -27,4 +27,15 @@ const getTeam = catchAsync(async (req: Request, res: Response) => {
     });
 });
 
-export default { createTeam, getTeam };
+const updateTeam = catchAsync(async (req: Request, res: Response) => {
+    const result = await service.updateTeamService(req.params.id, req.body);
+
+    sendResponse<ITeam>(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: "Successfully updated team",
+        data: result,
+    });
+});
+
+export default { createTeam, getTeam, updateTeam };
