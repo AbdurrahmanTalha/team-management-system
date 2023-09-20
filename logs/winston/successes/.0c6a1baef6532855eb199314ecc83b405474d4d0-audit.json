@@ -64,6 +64,16 @@
             "date": 1695204017631,
             "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/successes/phu-2023-20-09-16-success.log",
             "hash": "8f4b933be5503e6de671589b8a914b427c30ba63adb1cd42524abc6ecb2c5a45"
+        },
+        {
+            "date": 1695212228456,
+            "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/successes/phu-2023-20-09-18-success.log",
+            "hash": "14aa2bc0a97921c95bfe6eb8da31072600a9cd0fe72e7d2aeb3cbc9a20344a26"
+        },
+        {
+            "date": 1695215597224,
+            "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/successes/phu-2023-20-09-19-success.log",
+            "hash": "ddc5cb3339b12eeadcac7b3164d4d7e4093d1dcb3c4715a54e98c2bb8102f0f5"
         }
     ],
     "hashType": "sha256"

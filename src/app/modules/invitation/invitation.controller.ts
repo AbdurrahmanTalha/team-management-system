@@ -45,4 +45,14 @@ const denyInvite = catchAsync(async (req: Request, res: Response) => {
     });
 });
 
-export default { acceptInvite, denyInvite, inviteUser };
+const getInvitations = catchAsync(async (req: Request, res: Response) => {
+    const result = await service.getInvitationsService(req.params.teamId, req.params.status);
+    sendResponse<IInvitation[]>(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: "Successfully found invites",
+        data: result,
+    });
+});
+
+export default { acceptInvite, denyInvite, inviteUser, getInvitations };

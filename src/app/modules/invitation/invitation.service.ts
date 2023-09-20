@@ -71,5 +71,30 @@ const denyInviteService = async (membership_id: string, userId: number) => {
 
     return createdInvite;
 };
+const getInvitationsService = async (teamId: string, status: string): Promise<IInvitation[]> => {
+    const [teamRows] = await sql.query("SELECT * FROM team WHERE id = ?", [teamId]);
 
-export default { acceptInviteService, denyInviteService, inviteUserService };
+    if (Array.isArray(teamRows) && teamRows.length === 0) {
+        throw new ApiError(httpStatus.NOT_FOUND, "Team not found.");
+    }
+
+    const [inviteRows] = await sql.query("SELECT * FROM team_memberships WHERE team_id = ? AND status = ?", [
+        teamId,
+        status,
+    ]);
+
+    if (!Array.isArray(inviteRows)) {
+        throw new Error("Invalid database response for invitations.");
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const invites: IInvitation[] = inviteRows.map((row: any) => ({
+        user_id: row.user_id,
+        team_id: row.team_id,
+        status: row.status,
+    }));
+
+    return invites;
+};
+
+export default { acceptInviteService, denyInviteService, inviteUserService, getInvitationsService };
