@@ -64,4 +64,19 @@ const updateTeamService = async (teamId: string, payload: Partial<ITeam>): Promi
     }
 };
 
-export default { createTeamService, getTeamService, updateTeamService };
+const deleteTeamService = async (id: string): Promise<ITeam | null> => {
+    const [team] = await sql.query("SELECT * FROM team WHERE id = ?", [id]);
+    if (Array.isArray(team) && team.length === 0) {
+        throw new ApiError(httpStatus.NOT_FOUND, "Team not found.");
+    }
+
+    await sql.query("DELETE FROM team WHERE id = ?", [id]);
+    if (Array.isArray(team) && team.length > 0) {
+        const result = team[0] as ITeam;
+        return result;
+    }
+
+    return null;
+};
+
+export default { createTeamService, getTeamService, updateTeamService, deleteTeamService };

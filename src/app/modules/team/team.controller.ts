@@ -38,4 +38,15 @@ const updateTeam = catchAsync(async (req: Request, res: Response) => {
     });
 });
 
-export default { createTeam, getTeam, updateTeam };
+const deleteTeam = catchAsync(async (req: Request, res: Response) => {
+    const result = await service.deleteTeamService(req.params.id);
+
+    sendResponse<ITeam | null>(res, {
+        statusCode: httpStatus.OK,
+        success: true,
+        message: "Successfully deleted team",
+        data: result,
+    });
+});
+
+export default { createTeam, getTeam, updateTeam, deleteTeam };
