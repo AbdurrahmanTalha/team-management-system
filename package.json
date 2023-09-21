@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
+    "type": "module",
     "scripts": {
         "dev": "ts-node-dev --respawn --rs --transpile-only src/server.ts",
         "lint:check": "eslint --ignore-path .eslintignore --ext .js,.ts .",
@@ -10,7 +11,7 @@
         "prettier:check": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\"",
         "prettier:fixed": "prettier --write .",
         "lint_prettier:check": "yarn lint:check && yarn prettier:check",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "jest --detectOpenHandles"
     },
     "dependencies": {
         "@types/cors": "^2.8.14",
@@ -28,13 +29,19 @@
         "zod": "^3.22.2"
     },
     "devDependencies": {
+        "@jest/globals": "^29.7.0",
+        "@types/jest": "^29.5.5",
         "@types/jsonwebtoken": "^9.0.3",
         "@types/mysql": "^2.15.21",
+        "@types/supertest": "^2.0.12",
         "@typescript-eslint/eslint-plugin": "^6.7.2",
         "@typescript-eslint/parser": "^6.7.2",
         "eslint": "^8.49.0",
         "eslint-config-prettier": "^9.0.0",
+        "jest": "^29.7.0",
         "prettier": "^3.0.3",
+        "supertest": "^6.3.3",
+        "ts-jest": "^29.1.1",
         "ts-node-dev": "^2.0.0"
     }
 }

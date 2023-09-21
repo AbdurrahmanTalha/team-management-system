@@ -89,6 +89,16 @@
             "date": 1695310047475,
             "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/errors/phu-2023-21-09-21-error.log",
             "hash": "126ceb545bb72ae5bd64c6ad4c0cab36398ff7fc15d618fcca70badbd89ccb89"
+        },
+        {
+            "date": 1695312665021,
+            "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/errors/phu-2023-21-09-22-error.log",
+            "hash": "bfbd8e4b420c4b3966ea7f7193146879d9b9bffb72459c4de315c4b7209c72ce"
+        },
+        {
+            "date": 1695316407924,
+            "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/errors/phu-2023-21-09-23-error.log",
+            "hash": "510bb63ea8c03438075c8c0187f730d6e287d54d2f2c455ce1710c9ab26aba29"
         }
     ],
     "hashType": "sha256"
