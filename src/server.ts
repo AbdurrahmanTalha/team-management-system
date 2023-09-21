@@ -6,7 +6,7 @@ import { errorLogger, logger } from "./shared/logger";
 
 async function bootstrap() {
     const connection = mysql.createConnection({
-        host: "localhost",
+        host: config.database.host,
         user: config.database.user,
         password: config.database.password,
         database: config.database.database,
@@ -14,7 +14,7 @@ async function bootstrap() {
 
     connection.connect(function (err: Error | null) {
         if (err) {
-            errorLogger.error(`error connecting`);
+            errorLogger.error(`error connecting`, err);
             console.log(err);
             return;
         }

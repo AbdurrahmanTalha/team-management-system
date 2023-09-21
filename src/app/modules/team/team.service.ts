@@ -2,6 +2,7 @@ import httpStatus from "http-status";
 import ApiError from "../../../errors/ApiError";
 import sql from "../../../shared/db";
 import { ITeam } from "./team.interface";
+import { logger } from "../../../shared/logger";
 
 const createTeamService = async (payload: ITeam): Promise<ITeam> => {
     await sql.query("INSERT INTO team (teamName, teamCategory, description, goal) VALUES (?, ?, ?, ?)", [
@@ -15,6 +16,8 @@ const createTeamService = async (payload: ITeam): Promise<ITeam> => {
         payload.teamName,
         payload.teamCategory,
     ]);
+
+    logger.info(`Team has been created ${payload.teamName} - ${payload.teamCategory}`);
 
     if (Array.isArray(result) && result.length > 0) {
         const createdTeam = result[0] as ITeam;
@@ -53,6 +56,7 @@ const updateTeamService = async (teamId: string, payload: Partial<ITeam>): Promi
     const updateQuery = `UPDATE team SET ${updateColumns.join(", ")} WHERE id = ?`;
     updateValues.push(teamId);
     await sql.query(updateQuery, updateValues);
+    logger.info(`Team has been updated`);
 
     const [result] = await sql.query("SELECT * FROM team WHERE id = ?", [teamId]);
 
@@ -73,6 +77,7 @@ const deleteTeamService = async (id: string): Promise<ITeam | null> => {
     await sql.query("DELETE FROM team WHERE id = ?", [id]);
     if (Array.isArray(team) && team.length > 0) {
         const result = team[0] as ITeam;
+        logger.info(`Team has been deleted`);
         return result;
     }
 

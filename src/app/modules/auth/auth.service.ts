@@ -8,10 +8,11 @@ import { createToken } from "../../../helpers/jwtHelpers";
 import config from '../../../config';
 
 const createUserService = async (payload: IUser): Promise<void> => {
-    await sql.query("INSERT INTO user (username, password, email, role) VALUES (?, ?, ?, 'Team Member')", [
+    await sql.query("INSERT INTO user (username, password, email, role) VALUES (?, ?, ?, ?)", [
         payload.username,
         payload.password,
         payload.email,
+        payload.role
     ]);
 };
 
