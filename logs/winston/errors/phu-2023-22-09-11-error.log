@@ -1,0 +1,48 @@
+Fri Sep 22 2023 11:28:7 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "body",
+      "username"
+    ],
+    "message": "Expected string, received number"
+  }
+]
+Fri Sep 22 2023 11:28:7 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ Duplicate entry '3' for key 'user.username'
+Fri Sep 22 2023 11:39:20 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Fri Sep 22 2023 11:44:9 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Fri Sep 22 2023 11:46:50 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Fri Sep 22 2023 11:46:50 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ Duplicate entry 'test' for key 'team.teamName'
+Fri Sep 22 2023 11:46:50 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "body",
+      "teamName"
+    ],
+    "message": "Expected string, received number"
+  }
+]
+Fri Sep 22 2023 11:46:50 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ Team not found.
+Fri Sep 22 2023 11:47:11 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ Team not found.
+Fri Sep 22 2023 11:47:41 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Fri Sep 22 2023 11:49:21 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Fri Sep 22 2023 11:49:22 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ Team not found.
+Fri Sep 22 2023 11:51:8 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Fri Sep 22 2023 11:51:8 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ Team not found.
+Fri Sep 22 2023 11:51:8 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "body",
+      "teamName"
+    ],
+    "message": "Expected string, received number"
+  }
+]

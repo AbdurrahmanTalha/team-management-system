@@ -1,0 +1,24 @@
+Fri Sep 22 2023 18:48:33 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ Team not found.
+Fri Sep 22 2023 18:49:30 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ Team not found.
+Fri Sep 22 2023 18:49:30 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Fri Sep 22 2023 18:50:17 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ Team not found.
+Fri Sep 22 2023 18:50:17 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Fri Sep 22 2023 18:50:17 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Fri Sep 22 2023 18:50:36 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ Team not found.
+Fri Sep 22 2023 18:50:36 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Fri Sep 22 2023 18:50:36 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Fri Sep 22 2023 18:51:3 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ Team not found.
+Fri Sep 22 2023 18:51:3 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ You are not authorized
+Fri Sep 22 2023 18:57:45 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ Duplicate entry 'test' for key 'team.teamName'
+Fri Sep 22 2023 18:57:46 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "body",
+      "teamName"
+    ],
+    "message": "Expected string, received number"
+  }
+]
