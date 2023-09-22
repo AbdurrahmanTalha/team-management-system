@@ -94,6 +94,11 @@
             "date": 1695316407882,
             "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/successes/phu-2023-21-09-23-success.log",
             "hash": "9df027cb56ad89d44a882e32e7fa7b11b2f59d6259dc61cbf670a4f9210e94c4"
+        },
+        {
+            "date": 1695357953660,
+            "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/successes/phu-2023-22-09-10-success.log",
+            "hash": "ad4766028fc5cc0df301d3c2aaa9cc04af8db9b4c49e9d67e975049248d2d5e1"
         }
     ],
     "hashType": "sha256"

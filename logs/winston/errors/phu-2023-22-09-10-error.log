@@ -1,0 +1,28 @@
+Fri Sep 22 2023 10:49:54 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ Duplicate entry 'Jest Test' for key 'user.username'
+Fri Sep 22 2023 10:52:16 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ Duplicate entry 'Jest Test' for key 'user.username'
+Fri Sep 22 2023 10:52:47 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "body",
+      "username"
+    ],
+    "message": "Expected string, received number"
+  }
+]
+Fri Sep 22 2023 10:57:50 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "number",
+    "path": [
+      "body",
+      "username"
+    ],
+    "message": "Expected string, received number"
+  }
+]
+Fri Sep 22 2023 10:57:51 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ User does not exist
+Fri Sep 22 2023 10:59:34 [TMS] error: 🐱‍🏍 globalErrorHandler ~~ User does not exist
