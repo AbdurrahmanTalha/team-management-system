@@ -3,6 +3,7 @@ import mysql from "mysql";
 import app from "./app";
 import config from "./config";
 import { errorLogger, logger } from "./shared/logger";
+import { initializeSocketIO } from "./socket";
 
 async function bootstrap() {
     const connection = mysql.createConnection({
@@ -24,6 +25,7 @@ async function bootstrap() {
     const server: Server = app.listen(config.port, () => {
         logger.info(`Server running on port ${config.port}`);
     });
+    initializeSocketIO(server);
 
     const exitHandler = () => {
         if (server) {

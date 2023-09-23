@@ -119,6 +119,26 @@
             "date": 1695387628245,
             "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/errors/phu-2023-22-09-19-error.log",
             "hash": "a641c1258c7f3a1840651fc2fa0c78894e801ea6b5d41ed5f796516c96db8a4e"
+        },
+        {
+            "date": 1695406733618,
+            "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/errors/phu-2023-23-09-00-error.log",
+            "hash": "fcfd220b877f2c99f7dac853bd572ff93e2ad88c1b633033cac1e79709ec57dd"
+        },
+        {
+            "date": 1695476772764,
+            "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/errors/phu-2023-23-09-19-error.log",
+            "hash": "a15427f9e78cabed22c04b010bd8c7fc2a978e4cedc4e2992b9c5cdd836d89f4"
+        },
+        {
+            "date": 1695477621554,
+            "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/errors/phu-2023-23-09-20-error.log",
+            "hash": "6351099332dfb61f13e08ff8aa51f2aad5203a2c20855ab673327a09a711a3a0"
+        },
+        {
+            "date": 1695491730008,
+            "name": "/Volumes/Drive /projects/project/job-task/team-management-system/logs/winston/errors/phu-2023-23-09-23-error.log",
+            "hash": "d47d325cc5e760eb3fad5ac84552c4e384764afea16b4252151b9d3b5dbdf28c"
         }
     ],
     "hashType": "sha256"

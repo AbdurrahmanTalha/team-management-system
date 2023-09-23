@@ -5,9 +5,14 @@ import httpStatus from "http-status";
 import sendResponse from "../../../shared/sendResponse";
 import service from "./invitation.service";
 import { IInvitation } from "./invitation.interface";
+import { getSocketIO } from "../../../socket";
 
 const inviteUser = catchAsync(async (req: Request, res: Response) => {
     const result = await service.inviteUserService(req.body);
+    const timestamp = new Date();
+
+    const io = getSocketIO();
+    io.emit("invitationSent", { team: req.body.teamId, user: req.user, timestamp });
 
     sendResponse<IInvitation | null>(res, {
         statusCode: httpStatus.OK,
@@ -22,6 +27,8 @@ const acceptInvite = catchAsync(async (req: Request, res: Response) => {
         throw new ApiError(httpStatus.FORBIDDEN, "You are not authorized");
     }
     const result = await service.acceptInviteService(req.params.membershipId, req.user.userId);
+    const io = getSocketIO();
+    io.emit("invitationAccepted", { membershipId: result.membership_id, user: req.user.id });
 
     sendResponse<IInvitation>(res, {
         statusCode: httpStatus.OK,
@@ -36,6 +43,8 @@ const denyInvite = catchAsync(async (req: Request, res: Response) => {
         throw new ApiError(httpStatus.FORBIDDEN, "You are not authorized");
     }
     const result = await service.denyInviteService(req.params.membershipId, req.user.userId);
+    const io = getSocketIO();
+    io.emit("invitationDenied", { membershipId: result.membership_id, user: req.user.id });
 
     sendResponse<IInvitation>(res, {
         statusCode: httpStatus.OK,

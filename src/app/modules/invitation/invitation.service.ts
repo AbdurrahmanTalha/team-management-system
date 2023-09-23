@@ -3,22 +3,40 @@ import ApiError from "../../../errors/ApiError";
 import sql from "../../../shared/db";
 import { IUser } from "../auth/auth.interface";
 import { IInvitation } from "./invitation.interface";
+import { ITeam } from "../team/team.interface";
 
 const inviteUserService = async (payload: { teamId: number; email: string; role: string }) => {
+    // Check if user exists
     const [userRows] = await sql.query("SELECT id FROM user WHERE email = ?", [payload.email]);
 
     if (!Array.isArray(userRows) || userRows.length === 0) {
         throw new ApiError(httpStatus.NOT_FOUND, "User does not exist");
     }
 
-    const user = userRows[0] as IUser;
+    // Check if team exists
+    const [teamRows] = await sql.query("SELECT id, teamName FROM team WHERE id = ?", [payload.teamId]);
 
+    if (!Array.isArray(teamRows) || teamRows.length === 0) {
+        throw new ApiError(httpStatus.NOT_FOUND, "Team does not exist");
+    }
+
+    // Create an invitation
+    const team = teamRows[0] as ITeam;
+    console.log(team);
+    const user = userRows[0] as IUser;
     await sql.query("INSERT INTO team_memberships (team_id, user_id, status, role) VALUES (?, ?, 'Pending', ?)", [
         payload.teamId,
         user.id,
         payload.role,
     ]);
 
+    // Create notifications
+    await sql.query("INSERT INTO notifications (user_id, message) VALUES (?, ?)", [
+        user.id,
+        `You have invited to ${team.teamName}`,
+    ]);
+
+    // Return data
     const [inviteRows] = await sql.query("SELECT * FROM team_memberships WHERE team_id = ? AND user_id = ?", [
         payload.teamId,
         user.id,
@@ -29,11 +47,10 @@ const inviteUserService = async (payload: { teamId: number; email: string; role:
     }
 
     const createdInvite = inviteRows[0] as IInvitation;
-
     return createdInvite;
 };
 
-const acceptInviteService = async (membership_id: string, userId: number) => {
+const acceptInviteService = async (membership_id: string, userId: number): Promise<IInvitation> => {
     await sql.query("UPDATE team_memberships SET status = 'active' WHERE membership_id = ? AND user_id = ?", [
         membership_id,
         userId,
